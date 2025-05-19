@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 
 export const validationSchema = Joi.object({
-  NODE_ENV: Joi.string().valid('development', 'production', 'staging').default('development'),
+  NODE_ENV: Joi.string().valid('dev', 'prod', 'stage').default('dev'),
   PORT: Joi.number().default(3000),
   ORIGIN: Joi.string().required(),
   DATABASE_HOST: Joi.string().required(),
@@ -11,4 +11,11 @@ export const validationSchema = Joi.object({
   DATABASE_NAME: Joi.string().required(),
   API_KEY: Joi.string().required(),
   JWT_SECRET: Joi.string().required(),
+  // MONGO
+  MONGO_HOST: Joi.string().required(),
+  MONGO_PORT: Joi.number().required(),
+  MONGO_INITDB_ROOT_USERNAME: Joi.string().required(),
+  MONGO_INITDB_ROOT_PASSWORD: Joi.string().required(),
+  MONGO_DB: Joi.string().required(),
+  MONGO_CONNECTION: Joi.string().required(),
 });
