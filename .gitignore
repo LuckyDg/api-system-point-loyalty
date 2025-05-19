@@ -39,6 +39,7 @@ lerna-debug.log*
 .env
 .prod.env
 .stage.env
+mongo-data/
 
 # temp directory
 .temp
