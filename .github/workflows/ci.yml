@@ -1,0 +1,47 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+        env:
+          CI: true
+
+      # 4. Run lint
+      - name: Run lint
+        run: pnpm run lint
+
+      # 5. Run tests (unit + e2e)
+      - name: Run tests
+        run: pnpm run test && pnpm run test:e2e
+
+      # 6. Build production-ready app
+      - name: Build app
+        run: pnpm run build
+
+      # 7. Docker build and push
+
+      # 8. Deploy
+      - name: Deploy to server
+        run: echo "Deploy step placeholder - Aquí va tu comando de despliegue"
