@@ -7,6 +7,9 @@ import { config } from './config/config';
 import { UserModule } from './user/user.module';
 import { DatabaseModule } from './database/database.module';
 import { validationSchema } from './config/validation';
+import { PurchaseModule } from './purchase/purchase.module';
+import { ProductModule } from './product/product.module';
+import { RewardsModule } from './rewards/rewards.module';
 
 @Module({
   imports: [
@@ -18,6 +21,9 @@ import { validationSchema } from './config/validation';
     }),
     DatabaseModule,
     UserModule,
+    PurchaseModule,
+    ProductModule,
+    RewardsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
