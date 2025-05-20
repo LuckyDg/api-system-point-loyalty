@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { environment } from 'environments';
-import { AppService } from './app.service';
-import { AppController } from './app.controller';
+import { environment } from '../environments';
 import { config } from './config/config';
 import { UserModule } from './user/user.module';
 import { DatabaseModule } from './database/database.module';
@@ -25,7 +23,7 @@ import { RewardsModule } from './rewards/rewards.module';
     ProductModule,
     RewardsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
